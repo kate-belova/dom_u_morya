@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load thumbnail humanize %}
+
+{% block application %}
+    <form method="get" class="search-form">
+        {{ form.as_p }}
+        <p><button type="submit">Поиск</button></p>
+    </form>
+
+    <ul class="houses">
+        {% for house in houses %}
+            <li class="house">
+                <a href="{% url 'house' house_id=house.id %}">
+                    <h2>{{ house.name }}</h2>
+                    <div class="price">{{ house.price|intcomma }}</div>
+                    {% thumbnail house.photo "325x200" crop="center" as im %}
+                        <img src="{{ im.url }}" alt="Дом {{ house.name }}"
+                             class="img">
+                    {% endthumbnail %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

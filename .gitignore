@@ -1,0 +1,17 @@
+*.pyc
+.idea/*
+db.sqlite3
+/media
+/cache
+local_settings.py
+
+# Каталоги на хостинге
+/.direnv
+/__pycache__
+/env
+/public_html
+/tmp
+
+# Файлы на хостинге
+.envrc
+passenger_wsgi.py
